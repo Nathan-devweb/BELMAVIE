@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez l'hôtel BELMAVI, ses chambres et ses services.">
+  <title>Hôtel BELMAVI</title>
+
+  <!-- Feuille locale : le site conserve son style hors connexion. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     MENU : logo à gauche, liens vers les sections à droite
+     LOGO : remplacez le src="data:..." par src="images/logo.png"
+     ========================================================= -->
+<header>
+  <nav class="conteneur" aria-label="Navigation principale">
+    <a class="logo" href="#accueil">
+      <div class="logo-image">
+        <img
+          alt="Logo BELMAVI"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314402f'/%3E%3Cpath d='M50 18C30 34 30 62 50 82 70 62 70 34 50 18Z' fill='%23cfe3d4'/%3E%3Cpath d='M50 30V76' stroke='%2314402f' stroke-width='4'/%3E%3C/svg%3E"
+        >
+      </div>
+      <span>BELMAVI</span>
+    </a>
+
+    <!-- Bouton hamburger : visible seulement sur téléphone (géré par le CSS et le JS) -->
+    <button
+      class="menu-bouton"
+      id="menu-bouton"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="menu"
+    >
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <ul id="menu">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#chambres">Chambres</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- =========================================================
+     SECTION ACCUEIL
+     IMAGES : les visuels colorés sont provisoires et décoratifs (alt vide).
+     Pour mettre votre photo, remplacez tout le src="data:..." par
+     src="images/ma-photo.jpg" et renseignez son alt descriptif.
+     Pour supprimer une image : effacez le bloc entre DÉBUT et FIN.
+     ========================================================= -->
+<section id="accueil">
+  <div class="conteneur accueil-grille">
+    <!-- data-reveal déclenche l'apparition au défilement; le style correspondant est dans css/style.css. -->
+    <div data-reveal>
+      <h1>Hôtel BELMAVI</h1>
+      <p>Un havre de calme et de verdure, pour un séjour d'affaires ou de détente. Bienvenue chez vous.</p>
+      <a class="bouton" href="#contact">Réserver un séjour</a>
+    </div>
+
+    <!-- Collage de 4 photos -->
+    <div class="collage" data-reveal>
+      <!-- DÉBUT photo 1 (grande) -->
+      <div class="cadre grande">
+        <img
+          alt=""
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%232f6f4e'/%3E%3C/svg%3E"
+        >
+      </div>
+      <!-- FIN photo 1 -->
+      <!-- DÉBUT photo 2 -->
+      <div class="cadre">
+        <img
+          alt=""
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Crect width='500' height='400' fill='%2374a888'/%3E%3C/svg%3E"
+        >
+      </div>
+      <!-- FIN photo 2 -->
+      <!-- DÉBUT photo 3 -->
+      <div class="cadre">
+        <img
+          alt=""
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Crect width='500' height='400' fill='%23b8913a'/%3E%3C/svg%3E"
+        >
+      </div>
+      <!-- FIN photo 3 -->
+      <!-- DÉBUT photo 4 (bandeau) -->
+      <div class="cadre bandeau">
+        <img
+          alt=""
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'%3E%3Crect width='1000' height='300' fill='%2314402f'/%3E%3C/svg%3E"
+        >
+      </div>
+      <!-- FIN photo 4 -->
+    </div>
+  </div>
+</section>
+
+<!-- Bandeau "chambres" (les sections Restaurant et Détente ont été retirées).
+     Pour le supprimer, effacez tout le bloc <section> ci-dessous. -->
+<section aria-labelledby="chambres-title">
+  <div class="conteneur chambres">
+    <div class="cadre" data-reveal>
+      <img
+        alt=""
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23a9cdb5'/%3E%3C/svg%3E"
+      >
+    </div>
+    <div data-reveal>
+      <h2 id="chambres-title">Chambres confortables</h2>
+      <p>Découvrez les chambres de BELMAVI et contactez-nous pour connaître les équipements disponibles.</p>
+      <a class="bouton" href="#contact">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<!-- Informations pratiques pour préparer une demande de réservation. -->
+<section id="chambres" aria-labelledby="preparer-sejour-title">
+  <div class="conteneur">
+    <div class="preparer-intro" data-reveal>
+      <p class="sur-titre">Nos chambres</p>
+      <h2 id="preparer-sejour-title">Préparons votre séjour</h2>
+      <p>Indiquez-nous vos dates et vos besoins. Nous vous renseignerons sur les chambres disponibles et leurs équipements.</p>
+    </div>
+
+    <div class="infos-chambres">
+      <article class="info-chambre" data-reveal>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+          <rect x="7" y="10" width="34" height="31" rx="3" />
+          <path d="M15 6v8M33 6v8M7 19h34M15 26h6M27 26h6M15 33h6" />
+        </svg>
+        <h3>Vos dates</h3>
+        <p>Précisez vos dates d'arrivée et de départ pour vérifier les disponibilités.</p>
+      </article>
+
+      <article class="info-chambre" data-reveal>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+          <path d="M6 36V17M42 36V24M6 29h36v10H6zM6 24h13a6 6 0 0 1 6 6v-6a6 6 0 0 1 6-6h5a6 6 0 0 1 6 6" />
+          <path d="M10 39v4M38 39v4" />
+        </svg>
+        <h3>Vos besoins</h3>
+        <p>Parlez-nous des personnes qui vous accompagnent et de vos préférences.</p>
+      </article>
+
+      <article class="info-chambre" data-reveal>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+          <circle cx="24" cy="16" r="9" />
+          <path d="M20 16h8M24 12v8M8 41a16 16 0 0 1 32 0" />
+        </svg>
+        <h3>Les informations</h3>
+        <p>Contactez l'hôtel pour connaître les tarifs, les services et les équipements proposés.</p>
+      </article>
+    </div>
+
+    <a class="bouton bouton-chambres" href="#contact">Parler de mon séjour</a>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION À PROPOS : une introduction + 6 blocs
+     Chaque bloc = une icône + un titre + un texte.
+     Remplacez les textes par ceux de l'hôtel, ou supprimez un bloc
+     (la grille se réorganise toute seule).
+     ========================================================= -->
+<section id="a-propos">
+  <div class="conteneur">
+    <div class="intro" data-reveal>
+      <h2>À propos de BELMAVI</h2>
+      <p>Un aperçu de l'hôtel BELMAVI, de ses espaces et des informations utiles pour préparer votre séjour.</p>
+    </div>
+
+    <!-- Les icônes vectorielles remplacent les images provisoires de ces cartes. -->
+    <div class="blocs">
+      <!-- DÉBUT bloc 1 : Notre histoire -->
+      <article class="bloc" data-reveal>
+        <div class="cadre iconographie">
+          <svg class="icone-illustration" aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+            <path d="M6 20 24 7l18 13v21H6z" />
+            <path d="M17 41V27h14v14M12 22h24M11 15l13-9 13 9" />
+            <path d="M21 31h6v10h-6z" />
+          </svg>
+        </div>
+        <div class="texte">
+          <h3>Notre histoire</h3>
+          <p>Découvrez l'esprit de BELMAVI et les informations utiles pour mieux connaître l'hôtel avant votre arrivée.</p>
+        </div>
+      </article>
+      <!-- FIN bloc 1 -->
+
+      <!-- DÉBUT bloc 2 : Nos chambres -->
+      <article class="bloc" data-reveal>
+        <div class="cadre iconographie">
+          <svg class="icone-illustration" aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+            <path d="M7 35V16M41 35V23M7 28h34v10H7zM7 23h13a6 6 0 0 1 6 6v-6a6 6 0 0 1 6-6h3a6 6 0 0 1 6 6" />
+            <path d="M10 38v4M38 38v4" />
+          </svg>
+        </div>
+        <div class="texte">
+          <h3>Nos chambres</h3>
+          <p>Parcourez les chambres proposées et contactez l'équipe pour connaître les équipements disponibles.</p>
+        </div>
+      </article>
+      <!-- FIN bloc 2 -->
+
+      <!-- DÉBUT bloc 3 : Notre situation (remplace l'ancien bloc Restaurant) -->
+      <article class="bloc" data-reveal>
+        <div class="cadre iconographie">
+          <svg class="icone-illustration" aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+            <path d="M38 20c0 10-14 23-14 23S10 30 10 20a14 14 0 1 1 28 0Z" />
+            <circle cx="24" cy="20" r="4" />
+            <path d="M7 42h34M13 38l4-5M35 38l-4-5" />
+          </svg>
+        </div>
+        <div class="texte">
+          <h3>Notre situation</h3>
+          <p>Besoin d'informations pour préparer votre arrivée ? Contactez-nous pour connaître l'adresse et les accès.</p>
+        </div>
+      </article>
+      <!-- FIN bloc 3 -->
+
+      <!-- DÉBUT bloc 4 : Services -->
+      <article class="bloc" data-reveal>
+        <div class="cadre iconographie">
+          <svg class="icone-illustration" aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+            <rect x="8" y="11" width="32" height="29" rx="3" />
+            <path d="M17 11V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3M8 22h32M20 22v4h8v-4" />
+            <path d="m18 33 4 4 9-9" />
+          </svg>
+        </div>
+        <div class="texte">
+          <h3>Nos services</h3>
+          <p>Pour connaître les services proposés pendant votre séjour, écrivez-nous avant votre venue.</p>
+        </div>
+      </article>
+      <!-- FIN bloc 4 -->
+
+      <!-- DÉBUT bloc 5 : Notre équipe -->
+      <article class="bloc" data-reveal>
+        <div class="cadre iconographie">
+          <svg class="icone-illustration" aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+            <circle cx="18" cy="17" r="7" />
+            <circle cx="34" cy="19" r="5" />
+            <path d="M5 41v-4a13 13 0 0 1 26 0v4zM30 30a10 10 0 0 1 13 9v2H34" />
+          </svg>
+        </div>
+        <div class="texte">
+          <h3>Notre équipe</h3>
+          <p>L'équipe BELMAVI est à votre écoute pour répondre à vos questions et vous renseigner avant votre séjour.</p>
+        </div>
+      </article>
+      <!-- FIN bloc 5 -->
+
+      <!-- DÉBUT bloc 6 : Notre engagement -->
+      <article class="bloc" data-reveal>
+        <div class="cadre iconographie">
+          <svg class="icone-illustration" aria-hidden="true" focusable="false" viewBox="0 0 48 48">
+            <path d="M40 8C24 8 10 13 8 26c-1 8 4 14 12 13 13-2 18-16 20-31Z" />
+            <path d="M8 42c5-10 13-17 24-24M19 31l-1-8M26 25l8 1" />
+          </svg>
+        </div>
+        <div class="texte">
+          <h3>Notre engagement</h3>
+          <p>Nous souhaitons préparer votre accueil avec attention. Contactez-nous pour toute demande particulière.</p>
+        </div>
+      </article>
+      <!-- FIN bloc 6 -->
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION CONTACT
+     RÉSEAUX SOCIAUX : remplacez les icônes inactives par les liens
+     de votre page (ex. https://facebook.com/belmavi).
+     WhatsApp : https://wa.me/NUMERO (numéro avec l'indicatif, sans + ni espaces).
+     TikTok : https://www.tiktok.com/@votrecompte.
+     Pour retirer un réseau, supprimez son <li>.
+     ========================================================= -->
+<section id="contact">
+  <div class="conteneur contact-grille">
+    <div class="coordonnees" data-reveal>
+      <h2>Contact</h2>
+      <p>Une question ou un projet de réservation ? Écrivez-nous pour préparer votre séjour.</p>
+      <p><strong>Adresse :</strong> à renseigner</p>
+      <!-- Remplacez le texte provisoire par le vrai numéro avant publication. -->
+      <p>
+        <strong>Téléphone :</strong>
+        <span>Numéro de téléphone à renseigner</span>
+      </p>
+      <p><strong>Email :</strong> adresse à renseigner</p>
+
+      <ul class="reseaux">
+        <li>
+          <span class="reseau-inactif" role="img" aria-label="Facebook, lien à renseigner">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l.5-4H14V8.5c0-.3.2-.5.5-.5z"/>
+            </svg>
+          </span>
+        </li>
+        <li>
+          <span class="reseau-inactif" role="img" aria-label="Instagram, lien à renseigner">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r=".6"/>
+            </svg>
+          </span>
+        </li>
+        <li>
+          <span class="reseau-inactif" role="img" aria-label="WhatsApp, lien à renseigner">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.5z"/>
+              <path d="M9 8.5c0 3 3.5 6.5 6.5 6.5l1-1.5-2-1-1 .7c-.8-.3-1.7-1.2-2-2l.7-1-1-2z"/>
+            </svg>
+          </span>
+        </li>
+        <li>
+          <span class="reseau-inactif" role="img" aria-label="X (Twitter), lien à renseigner">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 4l14 16M19 4L5 20"/>
+            </svg>
+          </span>
+        </li>
+        <li>
+          <span class="reseau-inactif" role="img" aria-label="TikTok, lien à renseigner">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/>
+              <path d="M14 4c.4 2.4 2 4 4.5 4.2"/>
+            </svg>
+          </span>
+        </li>
+        <!-- Rendez cette icône cliquable après avoir renseigné le vrai numéro. -->
+        <li>
+          <span class="reseau-inactif" role="img" aria-label="Téléphone, numéro à renseigner">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+            </svg>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- FORMULAIRE : l'envoi est géré par js/script.js (il ouvre la messagerie du visiteur).
+         L'adresse qui reçoit les messages se change en haut de js/script.js (EMAIL_HOTEL). -->
+    <form id="formulaire" novalidate data-reveal>
+      <div>
+        <label for="nom">Nom</label>
+        <input id="nom" name="nom" type="text" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button class="bouton" type="submit">Envoyer le message</button>
+      <!-- Confirmation écrite par le JavaScript après l'envoi -->
+      <p class="form-message" id="form-message" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- PIED DE PAGE : ajoutez ici les mêmes liens officiels que dans la section Contact. -->
+<footer>
+  <ul class="reseaux">
+    <li>
+      <span class="reseau-inactif" role="img" aria-label="Facebook, lien à renseigner">
+        <svg viewBox="0 0 24 24">
+          <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l.5-4H14V8.5c0-.3.2-.5.5-.5z"/>
+        </svg>
+      </span>
+    </li>
+    <li>
+      <span class="reseau-inactif" role="img" aria-label="Instagram, lien à renseigner">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r=".6"/>
+        </svg>
+      </span>
+    </li>
+    <li>
+      <span class="reseau-inactif" role="img" aria-label="WhatsApp, lien à renseigner">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.5z"/>
+          <path d="M9 8.5c0 3 3.5 6.5 6.5 6.5l1-1.5-2-1-1 .7c-.8-.3-1.7-1.2-2-2l.7-1-1-2z"/>
+        </svg>
+      </span>
+    </li>
+    <li>
+      <span class="reseau-inactif" role="img" aria-label="X (Twitter), lien à renseigner">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 4l14 16M19 4L5 20"/>
+        </svg>
+      </span>
+    </li>
+    <li>
+      <span class="reseau-inactif" role="img" aria-label="TikTok, lien à renseigner">
+        <svg viewBox="0 0 24 24">
+          <path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/>
+          <path d="M14 4c.4 2.4 2 4 4.5 4.2"/>
+        </svg>
+      </span>
+    </li>
+    <li>
+      <span class="reseau-inactif" role="img" aria-label="Téléphone, numéro à renseigner">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+        </svg>
+      </span>
+    </li>
+  </ul>
+  <!-- L'année est remplie automatiquement par le JavaScript -->
+  <p>© <span id="annee">2026</span> Hôtel BELMAVI. Tous droits réservés.</p>
+</footer>
+
+<!-- Bouton "retour en haut" : affiché par le JavaScript après un peu de défilement -->
+<button class="haut" id="haut" aria-label="Retour en haut de la page">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- Le JavaScript est dans le fichier js/script.js (chargé en dernier, après la page) -->
+<script src="script.js"></script>
+
+</body>
+</html>
+

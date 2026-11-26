@@ -1,0 +1,697 @@
+/* =========================================================
+   HÔTEL BELMAVI : FEUILLE DE STYLE (css/style.css)
+   Le vert clair est la couleur du thème (fonds, menu),
+   accompagné de blanc, de vert foncé (textes) et d'un doré (accents).
+   ========================================================= */
+
+/* =========================================================
+   1. COULEURS ET POLICES
+   Pour changer le thème, modifiez seulement ces variables.
+   ========================================================= */
+:root {
+  --vert-clair: #cfe3d4; /* COULEUR DU THÈME : menu, accueil, sections */
+  --vert-pale: #e7f1e9; /* variante plus douce du vert clair */
+  --blanc: #ffffff; /* cartes et fond de page */
+  --vert-fonce: #14402f; /* titres et pied de page */
+  --vert: #2f6f4e; /* boutons et liens */
+  --dore: #b8913a; /* petits accents (traits, survol) */
+  --texte: #1d2b24; /* couleur du texte */
+  /* Polices système : aucune ressource distante n'est nécessaire. */
+  --police-titre: Georgia, "Times New Roman", serif;
+  --police-texte: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  font-family: var(--police-texte);
+  color: var(--texte);
+  background: var(--blanc);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  color: var(--vert-fonce);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--dore);
+  outline-offset: 2px;
+}
+
+.conteneur {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.cadre {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Mouvement discret des photos, sans déplacer le cadre qui les contient. */
+.cadre img {
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cadre:hover img {
+  transform: scale(1.035);
+}
+
+.bouton {
+  display: inline-block;
+  padding: 0.85rem 1.8rem;
+  border: 0;
+  border-radius: 4px;
+  background: var(--vert);
+  color: #fff;
+  font: 500 1rem var(--police-texte);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bouton:hover {
+  background: var(--vert-fonce);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(20, 64, 47, 0.16);
+}
+
+/* =========================================================
+   3. MENU (fixe en haut) : logo à gauche, liens à droite
+   ========================================================= */
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  background: var(--vert-clair);
+  border-bottom: 2px solid var(--dore);
+  transition: box-shadow 0.3s;
+}
+
+header.ombre {
+  /* Classe ajoutée par script.js lorsque la page défile. */
+  box-shadow: 0 4px 16px rgba(20, 64, 47, 0.18);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.logo .logo-image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.logo span {
+  font: 700 1.6rem var(--police-titre);
+  color: var(--vert-fonce);
+  letter-spacing: 0.06em;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav ul a {
+  color: var(--vert-fonce);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+nav ul a:hover,
+nav ul a.actif {
+  /* La classe .actif suit la section visible. */
+  border-color: var(--dore);
+}
+
+/* Bouton "hamburger" : caché sur ordinateur, affiché sur téléphone (voir section 10) */
+.menu-bouton {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--vert-fonce);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.menu-bouton[aria-expanded="true"] {
+  background: var(--vert-pale);
+  transform: rotate(90deg);
+}
+
+.menu-bouton svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+/* =========================================================
+   4. ACCUEIL : texte à gauche, collage de photos à droite
+   ========================================================= */
+#accueil {
+  padding-top: 8rem;
+  background: var(--vert-clair);
+}
+
+.accueil-grille {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+#accueil h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+#accueil p {
+  font-size: 1.15rem;
+  max-width: 30rem;
+  margin: 1.2rem 0 2rem;
+}
+
+/* Collage : 1 grande photo (gauche) + 2 petites (droite) + 1 bandeau (bas) */
+.collage {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: 190px 190px 150px;
+  gap: 0.8rem;
+}
+
+.collage .grande {
+  grid-row: 1 / 3;
+}
+
+.collage .bandeau {
+  grid-column: 1 / 3;
+}
+
+/* Bandeau "chambres" : photo à gauche, texte à droite */
+.chambres {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.chambres .cadre {
+  aspect-ratio: 4 / 3;
+}
+
+.chambres p {
+  margin: 1rem 0 1.8rem;
+  max-width: 30rem;
+}
+
+/* Présente les informations utiles sans promettre de service non confirmé. */
+#chambres {
+  background: var(--vert-pale);
+}
+
+.preparer-intro {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.sur-titre {
+  margin-bottom: 0.55rem;
+  color: var(--vert);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.infos-chambres {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.info-chambre {
+  padding: 1.5rem;
+  border: 1px solid rgba(20, 64, 47, 0.12);
+  border-radius: 8px;
+  background: var(--blanc);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.info-chambre:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(20, 64, 47, 0.1);
+}
+
+.info-chambre svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  fill: none;
+  stroke: var(--vert);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-chambre h3 {
+  margin-bottom: 0.45rem;
+  font-size: 1.35rem;
+}
+
+.info-chambre p {
+  font-size: 0.96rem;
+}
+
+.bouton-chambres {
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   5. À PROPOS : introduction + 6 blocs
+   ========================================================= */
+#a-propos {
+  background: var(--vert-pale);
+}
+
+.intro {
+  max-width: 40rem;
+  margin-bottom: 3rem;
+}
+
+.blocs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.bloc {
+  background: var(--blanc);
+  border-radius: 8px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--dore);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bloc:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(20, 64, 47, 0.1);
+}
+
+.bloc .cadre {
+  aspect-ratio: 16 / 10;
+  border-radius: 0;
+}
+
+/*
+ * Les cartes « À propos » utilisent des SVG intégrés au HTML au lieu de
+ * grandes images provisoires. Le fond doux donne du relief aux pictogrammes.
+ */
+.bloc .cadre.iconographie {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background: linear-gradient(135deg, var(--vert-pale), var(--vert-clair));
+  color: var(--vert-fonce);
+}
+
+.bloc .cadre.iconographie::before {
+  position: absolute;
+  z-index: -1;
+  width: clamp(6rem, 12vw, 8rem);
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  content: "";
+  opacity: 0.18;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.bloc:nth-child(3n + 2) .cadre.iconographie {
+  background: linear-gradient(135deg, #f5eddb, #ead9b3);
+  color: #775a1d;
+}
+
+.bloc:nth-child(3n) .cadre.iconographie {
+  background: linear-gradient(135deg, #e4eee8, #c4d9cc);
+  color: var(--vert);
+}
+
+.icone-illustration {
+  width: clamp(3.5rem, 7vw, 4.75rem);
+  height: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.bloc:hover .cadre.iconographie::before {
+  opacity: 0.28;
+  transform: scale(1.08);
+}
+
+.bloc:hover .icone-illustration {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.bloc div.texte {
+  padding: 1.3rem 1.4rem 1.6rem;
+}
+
+.bloc h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.bloc p {
+  font-size: 0.97rem;
+}
+
+/* =========================================================
+   6. CONTACT
+   ========================================================= */
+.contact-grille {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+}
+
+.coordonnees p {
+  margin-bottom: 0.8rem;
+}
+
+.coordonnees a {
+  color: var(--vert);
+  font-weight: 500;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #9db8a6;
+  border-radius: 4px;
+  background: var(--vert-pale);
+  font: inherit;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-message {
+  min-height: 1.5rem;
+  font-weight: 500;
+  color: var(--vert);
+  /* Le JavaScript affiche ici la confirmation du formulaire. */
+}
+
+/* =========================================================
+   7. RÉSEAUX SOCIAUX (icônes rondes, utilisées dans Contact et pied de page)
+   ========================================================= */
+.reseaux {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+  margin-top: 1.2rem;
+}
+
+.reseaux a,
+.reseaux .reseau-inactif {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--vert-clair);
+  color: var(--vert-fonce);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.reseaux .reseau-inactif {
+  opacity: 0.55;
+}
+
+.reseaux a:hover {
+  background: var(--dore);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.reseaux svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================================
+   8. PIED DE PAGE
+   ========================================================= */
+footer {
+  background: var(--vert-fonce);
+  color: var(--vert-clair);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+footer .reseaux {
+  justify-content: center;
+  margin: 0 0 1.2rem;
+}
+
+/* =========================================================
+   9. BOUTON "RETOUR EN HAUT" (affiché par le JS après un peu de défilement)
+   ========================================================= */
+.haut {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 9;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--vert);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.haut.visible {
+  /* La classe .visible est ajoutée par script.js après le défilement. */
+  opacity: 1;
+  visibility: visible;
+}
+
+.haut:hover {
+  background: var(--vert-fonce);
+  transform: translateY(-3px);
+}
+
+.haut svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/*
+ * Apparition au défilement. La classe .js est ajoutée par le script; sans
+ * JavaScript, le contenu reste donc visible et la page reste lisible.
+ */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js [data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Les cartes apparaissent légèrement l'une après l'autre. */
+.js .bloc:nth-child(2) { transition-delay: 70ms; }
+.js .bloc:nth-child(3) { transition-delay: 140ms; }
+.js .bloc:nth-child(4) { transition-delay: 210ms; }
+.js .bloc:nth-child(5) { transition-delay: 280ms; }
+.js .bloc:nth-child(6) { transition-delay: 350ms; }
+.js .info-chambre:nth-child(2) { transition-delay: 80ms; }
+.js .info-chambre:nth-child(3) { transition-delay: 160ms; }
+
+/* =========================================================
+   10. TÉLÉPHONE ET TABLETTE (écrans étroits)
+   ========================================================= */
+@media (max-width: 860px) {
+  .accueil-grille,
+  .contact-grille,
+  .chambres {
+    grid-template-columns: 1fr;
+  }
+
+  .blocs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .infos-chambres {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Le menu devient un panneau déroulant ouvert par le bouton hamburger.
+     La classe "js" est ajoutée par le JS : sans JS, le menu reste visible normalement. */
+  .js .menu-bouton {
+    display: block;
+  }
+
+  .js nav ul {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--vert-clair);
+    border-bottom: 2px solid var(--dore);
+    padding: 0.5rem 1.5rem 1rem;
+  }
+
+  .js nav ul.ouvert {
+    display: flex;
+  }
+
+  .js nav ul a {
+    display: block;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--vert-pale);
+  }
+}
+
+@media (max-width: 560px) {
+  .blocs {
+    grid-template-columns: 1fr;
+  }
+
+  .collage {
+    grid-template-rows: 150px 150px 120px;
+  }
+
+  section {
+    padding: 3.5rem 0;
+  }
+}
+
+/* Respect des personnes qui désactivent les animations dans leur système */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+
+  /* Les animations sont neutralisées, et aucun contenu ne reste masqué. */
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cadre:hover img,
+  .info-chambre:hover,
+  .bloc:hover .icone-illustration,
+  .bloc:hover .cadre.iconographie::before,
+  .bloc:hover,
+  .bouton:hover,
+  .reseaux a:hover,
+  .haut:hover,
+  .menu-bouton[aria-expanded="true"] {
+    transform: none;
+  }
+}

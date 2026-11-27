@@ -11,25 +11,23 @@ la progression après chaque nouvelle étape.
 | 1. Préparer les fichiers du site | Terminée | Structure HTML, CSS et JavaScript en place |
 | 2. Construire le contenu de la page | Terminée | Accueil, informations chambres, présentation, contact et pied de page |
 | 3. Créer le style visuel et l'adaptation mobile | Terminée | Thème vert et doré, grilles et règles pour petits écrans |
-| 4. Ajouter les interactions | Terminée | Menu mobile, suivi du défilement, images de secours, formulaire et année |
-| 5. Rendre le code plus lisible | Terminée | Mise en forme clarifiée et commentaires explicatifs |
-| 6. Personnaliser les informations de l'hôtel | À faire | Remplacer les textes, coordonnées, liens et images provisoires |
-| 7. Tester le site final et le publier | À faire | Vérifier les pages et les liens, puis choisir un hébergement |
+| 4. Ajouter les interactions | Terminée | Menu mobile protégé contre les éléments absents, images et année facultatives |
+| 5. Rendre le code plus lisible | Terminée | Sections commentées et points de personnalisation indiqués |
+| 6. Configurer le formulaire et les informations de l'hôtel | À faire | Créer le formulaire Formspree et renseigner les vraies coordonnées |
+| 7. Tester le site final et le publier | À faire | Vérifier le formulaire, les mentions légales et les liens avant publication |
 
 ## Déroulement de la rédaction du code
 
 ### 1. Préparer la structure
 
-La version complète du site se trouve dans le dossier [`hotel-belmavi`](hotel-belmavi/).
-La page principale est [`hotel-belmavi/index.html`](hotel-belmavi/index.html).
-Les styles, les scripts et les images sont rangés séparément :
+La version actuelle du site se trouve à la racine du dépôt. La page principale
+est [`index.html`](index.html). Les styles, scripts et images sont rangés ainsi :
 
-- [`hotel-belmavi/css/style.css`](hotel-belmavi/css/style.css) : présentation et mise en page ;
-- [`hotel-belmavi/js/script.js`](hotel-belmavi/js/script.js) : interactions ;
-- [`hotel-belmavi/images/`](hotel-belmavi/images/) : dossier destiné aux images du site.
+- [`style.css`](style.css) : présentation et mise en page ;
+- [`script.js`](script.js) : interactions ;
+- [`images/`](images/) : images du site et favicon.
 
-Les fichiers de travail sont regroupés dans `hotel-belmavi` pour éviter les
-copies concurrentes. Pour modifier le site, utilisez cette version unique.
+Utilisez ces fichiers à la racine comme source unique du site.
 
 ### 2. Construire la page HTML
 
@@ -69,12 +67,14 @@ HTML :
 - mise en évidence du lien correspondant à la section visible ;
 - apparition progressive des blocs pendant le défilement ;
 - image de remplacement lorsqu'une image ne se charge pas ;
-- validation du formulaire et ouverture d'un nouveau message électronique ;
+- validation HTML accessible et formulaire de demande de séjour prêt à configurer avec Formspree ;
 - mise à jour automatique de l'année du pied de page.
 
-L'adresse de réception du formulaire est définie par `EMAIL_HOTEL` au début du
-fichier. Le formulaire ouvre l'application de messagerie du visiteur ; il ne
-transmet pas directement les messages à un serveur.
+Le formulaire reste désactivé tant que l'identifiant Formspree n'est pas
+renseigné dans `index.html`. Après configuration et test de l'envoi, retirez
+l'attribut `disabled` du bouton et remplacez le message d'attente. Il utilise
+un champ piège anti-robots et ne prétend pas confirmer un envoi qui n'a pas eu
+lieu.
 
 Les animations restent discrètes et sont désactivées lorsque le navigateur
 signale une préférence pour la réduction des mouvements.
@@ -104,14 +104,19 @@ et JavaScript.
 ## Prochaines étapes de personnalisation
 
 1. Remplacer les textes provisoires par les informations exactes de l'hôtel.
-2. Ajouter les vraies photos dans `hotel-belmavi/images/` et mettre à jour les
+2. Ajouter les vraies photos dans `images/` et mettre à jour les
    attributs `src` correspondants.
-3. Renseigner l'adresse électronique dans `EMAIL_HOTEL`, ainsi que les
-   coordonnées et les liens de réseaux sociaux dans la page.
-4. Tester les liens, le formulaire, le menu mobile et les images dans un
+3. Créer le formulaire Formspree, remplacer son identifiant dans `index.html`,
+   régler l'adresse de réception dans son tableau de bord et retirer `disabled`
+   du bouton d'envoi après un test concluant.
+4. Ajouter la ville au titre/contenu, l'adresse, le téléphone, les réseaux,
+   les liens de partage et l'URL de l'image Open Graph.
+5. Ajouter des mentions légales et une politique de confidentialité adaptées
+   avant de collecter des noms, emails et demandes de séjour.
+6. Tester les liens, le formulaire, le menu mobile et les images dans un
    navigateur.
-5. Choisir un hébergement et publier le dossier complet `hotel-belmavi`.
-6. Reporter les étapes terminées dans le tableau « État d'avancement » et
+7. Choisir un hébergement HTTPS et publier le site.
+8. Reporter les étapes terminées dans le tableau « État d'avancement » et
    noter ci-dessous les changements importants.
 
 ## Journal des mises à jour

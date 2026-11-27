@@ -3,14 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Découvrez l'hôtel BELMAVI, ses chambres et ses services.">
-  <title>Hôtel BELMAVI</title>
+  <meta name="description" content="Découvrez l'hôtel BELMAVI, ses chambres et préparez votre séjour. Contactez-nous pour une demande de réservation.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Hôtel BELMAVI">
+  <meta property="og:title" content="Hôtel BELMAVI | Chambres et séjours">
+  <meta property="og:description" content="Découvrez l'hôtel BELMAVI et préparez votre séjour.">
+  <!-- À renseigner avant publication : URL absolue du site et image réelle pour les aperçus de partage. -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <title>Hôtel BELMAVI | Chambres et séjours</title>
 
   <!-- Feuille locale : le site conserve son style hors connexion. -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<!-- Lien d'évitement : permet d'atteindre directement le contenu au clavier. -->
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
 
 <!-- =========================================================
      MENU : logo à gauche, liens vers les sections à droite
@@ -22,6 +32,8 @@
       <div class="logo-image">
         <img
           alt="Logo BELMAVI"
+          width="100"
+          height="100"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314402f'/%3E%3Cpath d='M50 18C30 34 30 62 50 82 70 62 70 34 50 18Z' fill='%23cfe3d4'/%3E%3Cpath d='M50 30V76' stroke='%2314402f' stroke-width='4'/%3E%3C/svg%3E"
         >
       </div>
@@ -48,7 +60,7 @@
   </nav>
 </header>
 
-<main>
+<main id="contenu">
 
 <!-- =========================================================
      SECTION ACCUEIL
@@ -59,8 +71,9 @@
      ========================================================= -->
 <section id="accueil">
   <div class="conteneur accueil-grille">
-    <!-- data-reveal déclenche l'apparition au défilement; le style correspondant est dans css/style.css. -->
+    <!-- data-reveal déclenche l'apparition au défilement; le style correspondant est dans style.css. -->
     <div data-reveal>
+      <!-- À personnaliser : ajoutez ici la ville réelle de l'hôtel pour améliorer le référencement local. -->
       <h1>Hôtel BELMAVI</h1>
       <p>Un havre de calme et de verdure, pour un séjour d'affaires ou de détente. Bienvenue chez vous.</p>
       <a class="bouton" href="#contact">Réserver un séjour</a>
@@ -72,6 +85,8 @@
       <div class="cadre grande">
         <img
           alt=""
+          width="600"
+          height="800"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%232f6f4e'/%3E%3C/svg%3E"
         >
       </div>
@@ -80,6 +95,8 @@
       <div class="cadre">
         <img
           alt=""
+          width="500"
+          height="400"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Crect width='500' height='400' fill='%2374a888'/%3E%3C/svg%3E"
         >
       </div>
@@ -88,6 +105,8 @@
       <div class="cadre">
         <img
           alt=""
+          width="500"
+          height="400"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Crect width='500' height='400' fill='%23b8913a'/%3E%3C/svg%3E"
         >
       </div>
@@ -96,6 +115,8 @@
       <div class="cadre bandeau">
         <img
           alt=""
+          width="1000"
+          height="300"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 300'%3E%3Crect width='1000' height='300' fill='%2314402f'/%3E%3C/svg%3E"
         >
       </div>
@@ -111,6 +132,9 @@
     <div class="cadre" data-reveal>
       <img
         alt=""
+        width="800"
+        height="600"
+        loading="lazy"
         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23a9cdb5'/%3E%3C/svg%3E"
       >
     </div>
@@ -289,25 +313,19 @@
     <div class="coordonnees" data-reveal>
       <h2>Contact</h2>
       <p>Une question ou un projet de réservation ? Écrivez-nous pour préparer votre séjour.</p>
-      <p><strong>Adresse :</strong> à renseigner</p>
-      <!-- Remplacez le texte provisoire par le vrai numéro avant publication. -->
-      <p>
-        <strong>Téléphone :</strong>
-        <span>Numéro de téléphone à renseigner</span>
-      </p>
-      <p><strong>Email :</strong> adresse à renseigner</p>
+      <!-- À compléter avant publication avec l'adresse réelle, le téléphone (lien tel:) et l'email validé. -->
 
       <ul class="reseaux">
         <li>
           <span class="reseau-inactif" role="img" aria-label="Facebook, lien à renseigner">
-            <svg viewBox="0 0 24 24">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
               <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l.5-4H14V8.5c0-.3.2-.5.5-.5z"/>
             </svg>
           </span>
         </li>
         <li>
           <span class="reseau-inactif" role="img" aria-label="Instagram, lien à renseigner">
-            <svg viewBox="0 0 24 24">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
               <rect x="3" y="3" width="18" height="18" rx="5"/>
               <circle cx="12" cy="12" r="4"/>
               <circle cx="17.5" cy="6.5" r=".6"/>
@@ -316,7 +334,7 @@
         </li>
         <li>
           <span class="reseau-inactif" role="img" aria-label="WhatsApp, lien à renseigner">
-            <svg viewBox="0 0 24 24">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
               <path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.5z"/>
               <path d="M9 8.5c0 3 3.5 6.5 6.5 6.5l1-1.5-2-1-1 .7c-.8-.3-1.7-1.2-2-2l.7-1-1-2z"/>
             </svg>
@@ -324,104 +342,98 @@
         </li>
         <li>
           <span class="reseau-inactif" role="img" aria-label="X (Twitter), lien à renseigner">
-            <svg viewBox="0 0 24 24">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
               <path d="M5 4l14 16M19 4L5 20"/>
             </svg>
           </span>
         </li>
         <li>
           <span class="reseau-inactif" role="img" aria-label="TikTok, lien à renseigner">
-            <svg viewBox="0 0 24 24">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
               <path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/>
               <path d="M14 4c.4 2.4 2 4 4.5 4.2"/>
             </svg>
           </span>
         </li>
         <!-- Rendez cette icône cliquable après avoir renseigné le vrai numéro. -->
-        <li>
-          <span class="reseau-inactif" role="img" aria-label="Téléphone, numéro à renseigner">
-            <svg viewBox="0 0 24 24">
-              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
-            </svg>
-          </span>
-        </li>
       </ul>
     </div>
 
-    <!-- FORMULAIRE : l'envoi est géré par js/script.js (il ouvre la messagerie du visiteur).
-         L'adresse qui reçoit les messages se change en haut de js/script.js (EMAIL_HOTEL). -->
-    <form id="formulaire" novalidate data-reveal>
+    <!--
+      CONFIGURATION OBLIGATOIRE AVANT PUBLICATION :
+      1. Créez un formulaire Formspree et remplacez REMPLACER_PAR_ID_FORMULAIRE
+         dans action par l'identifiant reçu (ex. https://formspree.io/f/abcdwxyz).
+      2. Vérifiez l'adresse destinataire dans le tableau de bord Formspree.
+      3. Après un envoi de test, supprimez disabled du bouton et remplacez le
+         message d'attente ci-dessous par une consigne adaptée.
+      4. Ajoutez une politique de confidentialité adaptée avant de collecter ces données.
+      Le formulaire HTML fonctionne sans JavaScript une fois configuré.
+    -->
+    <form
+      id="formulaire"
+      action="https://formspree.io/f/REMPLACER_PAR_ID_FORMULAIRE"
+      method="POST"
+      data-reveal
+    >
+      <input type="hidden" name="_subject" value="Demande de séjour - Hôtel BELMAVI">
+      <!-- Champ piège anti-robots : il doit rester vide et invisible pour les visiteurs. -->
+      <div class="champ-piege" aria-hidden="true">
+        <label for="site-web">Ne pas remplir</label>
+        <input id="site-web" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
       <div>
         <label for="nom">Nom</label>
-        <input id="nom" name="nom" type="text" autocomplete="name" required>
+        <input id="nom" name="nom" type="text" autocomplete="name" aria-describedby="erreur-nom" required>
+        <span class="erreur-champ" id="erreur-nom"></span>
       </div>
       <div>
         <label for="email">Email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
+        <input id="email" name="email" type="email" autocomplete="email" aria-describedby="erreur-email" required>
+        <span class="erreur-champ" id="erreur-email"></span>
       </div>
       <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <label for="arrivee">Date d'arrivée</label>
+        <input id="arrivee" name="date_arrivee" type="date" aria-describedby="erreur-arrivee" required>
+        <span class="erreur-champ" id="erreur-arrivee"></span>
       </div>
-      <button class="bouton" type="submit">Envoyer le message</button>
-      <!-- Confirmation écrite par le JavaScript après l'envoi -->
-      <p class="form-message" id="form-message" role="status"></p>
+      <div>
+        <label for="depart">Date de départ</label>
+        <input id="depart" name="date_depart" type="date" aria-describedby="erreur-depart" required>
+        <span class="erreur-champ" id="erreur-depart"></span>
+      </div>
+      <div>
+        <label for="personnes">Nombre de personnes</label>
+        <input id="personnes" name="nombre_personnes" type="number" min="1" value="1" aria-describedby="erreur-personnes" required>
+        <span class="erreur-champ" id="erreur-personnes"></span>
+      </div>
+      <div>
+        <label for="chambre">Type de chambre souhaité</label>
+        <select id="chambre" name="type_chambre" aria-describedby="erreur-chambre" required>
+          <option value="">Choisissez une option</option>
+          <!-- À personnaliser : remplacez ces choix par les types de chambres réellement proposés. -->
+          <option value="simple">Chambre simple</option>
+          <option value="double">Chambre double</option>
+          <option value="autre">Autre / à préciser</option>
+        </select>
+        <span class="erreur-champ" id="erreur-chambre"></span>
+      </div>
+      <div>
+        <label for="message">Message complémentaire</label>
+        <textarea id="message" name="message" aria-describedby="erreur-message" required></textarea>
+        <span class="erreur-champ" id="erreur-message"></span>
+      </div>
+      <p class="form-message" id="form-message" role="status">
+        Formulaire indisponible : sa configuration par l'hôtel est en attente.
+      </p>
+      <button class="bouton" type="submit" disabled>Envoyer la demande</button>
     </form>
   </div>
 </section>
 
 </main>
 
-<!-- PIED DE PAGE : ajoutez ici les mêmes liens officiels que dans la section Contact. -->
+<!-- PIED DE PAGE -->
 <footer>
-  <ul class="reseaux">
-    <li>
-      <span class="reseau-inactif" role="img" aria-label="Facebook, lien à renseigner">
-        <svg viewBox="0 0 24 24">
-          <path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l.5-4H14V8.5c0-.3.2-.5.5-.5z"/>
-        </svg>
-      </span>
-    </li>
-    <li>
-      <span class="reseau-inactif" role="img" aria-label="Instagram, lien à renseigner">
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r=".6"/>
-        </svg>
-      </span>
-    </li>
-    <li>
-      <span class="reseau-inactif" role="img" aria-label="WhatsApp, lien à renseigner">
-        <svg viewBox="0 0 24 24">
-          <path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.5z"/>
-          <path d="M9 8.5c0 3 3.5 6.5 6.5 6.5l1-1.5-2-1-1 .7c-.8-.3-1.7-1.2-2-2l.7-1-1-2z"/>
-        </svg>
-      </span>
-    </li>
-    <li>
-      <span class="reseau-inactif" role="img" aria-label="X (Twitter), lien à renseigner">
-        <svg viewBox="0 0 24 24">
-          <path d="M5 4l14 16M19 4L5 20"/>
-        </svg>
-      </span>
-    </li>
-    <li>
-      <span class="reseau-inactif" role="img" aria-label="TikTok, lien à renseigner">
-        <svg viewBox="0 0 24 24">
-          <path d="M14 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/>
-          <path d="M14 4c.4 2.4 2 4 4.5 4.2"/>
-        </svg>
-      </span>
-    </li>
-    <li>
-      <span class="reseau-inactif" role="img" aria-label="Téléphone, numéro à renseigner">
-        <svg viewBox="0 0 24 24">
-          <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
-        </svg>
-      </span>
-    </li>
-  </ul>
   <!-- L'année est remplie automatiquement par le JavaScript -->
   <p>© <span id="annee">2026</span> Hôtel BELMAVI. Tous droits réservés.</p>
 </footer>
@@ -431,7 +443,12 @@
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<!-- Le JavaScript est dans le fichier js/script.js (chargé en dernier, après la page) -->
+<!-- Sans JavaScript, la navigation et le formulaire configuré restent utilisables. -->
+<noscript>
+  <p class="avis-sans-script">JavaScript est désactivé : le menu reste visible. Le formulaire nécessite sa configuration Formspree avant utilisation.</p>
+</noscript>
+
+<!-- Le script est chargé en dernier pour laisser le HTML accessible avant son exécution. -->
 <script src="script.js"></script>
 
 </body>

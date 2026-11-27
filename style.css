@@ -454,8 +454,8 @@ nav ul a.actif {
    ========================================================= */
 .contact-grille {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: start;
 }
 
